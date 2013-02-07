@@ -1,0 +1,9 @@
+one:
+  card_id: 1
+  order_id: 1
+  quantity: 1
+
+two:
+  card_id: 1
+  order_id: 1
+  quantity: 1

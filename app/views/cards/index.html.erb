@@ -1,0 +1,32 @@
+<% title "Cards" %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>Image Url</th>
+    <th>Stock</th>
+    <th>Buy</th>
+  </tr>
+  <% for card in @cards %>
+    <tr>
+      <td><%= card.title %></td>
+      <td><%= print_price(card.price) %></td>
+      <td><%= card.description %></td>
+      <td><%= card.image_url %></td>
+      <td><%= print_stock(card.stock) %></td>
+      <td><%= button_to "Add to Cart", order_items_path(card_id: card.id) %></td>
+      <td><%= link_to "Show", card %></td>
+      <td><%= link_to "Edit", edit_card_path(card) %></td>
+      <td><%= link_to "Destroy", card, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "Create a New Card", new_card_path, id: "new_card" %></p>
+
+<p>
+  Item Count: <%= @order.order_items.count %>
+</p>
+
